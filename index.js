@@ -12,6 +12,9 @@ $(document).ready(() => {
 
   $("#header").css('background-color', 'LightGray')
   $("#tweetArea").css('background-color', 'LightSteelBlue')
+  
+    
+    
 
   $("#header").append('<div id= buttonArea7 > <div>')
   $("#header").append('<div id= buttonArea8 > <div>')
@@ -33,14 +36,29 @@ $(document).ready(() => {
     $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users[homeUser].map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${ogCreated.toDateString()}--${ogCreated.toLocaleTimeString()}--${Math.floor((new Date()- ogCreated) / 1000)}seconds ago`+'</div>'
     }) +'<div>'))
-  }})
+  }
+  $("#tweetArea").css('background-color', 'LightSteelBlue')
+
+  $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
+
+})
+
+
+
+  $('#buttonArea8').css('background-color', 'LightSteelBlue')
+
 
   $('#buttonArea7').append('Sign in Username').click(function(){
      homeUser = prompt("What Your Username User?")
 }
   )
+  $('#buttonArea7').css({"border-color": "#C1E0FF", 
+  "border-weight":"1px", 
+  "border-style":"solid"})
 
-  $('#buttonArea6').append('New Twiddle').click(function(){
+  $('#buttonArea6').append('Make New Twiddle').click(function(){
     if (!homeUser) {alert("Please Sign in Username") }
 
     else{
@@ -63,37 +81,90 @@ $(document).ready(() => {
       });
       console.log(streams.home)
     }  
-}
+
 
   $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.map( function(tweet){
     return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${ogCreated.toDateString()}--${ogCreated.toLocaleTimeString()}--${Math.floor((new Date()- ogCreated) / 1000)}seconds ago`+'</div>'
   }) +'<div>'))
+  $("#tweetArea").css('background-color', 'LightSteelBlue')
 
+  $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
 
+    }
 })
   
 
   $('#buttonArea2').append('Shawn ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.shawndrost.map( function(tweet){
        return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-     }) +'<div>'))})
+     }) +'<div>'))
+     $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
+     "border-weight":"1px", 
+     "border-style":"solid"})
+     
+     $('#tweetArea').children().css({"border-color": "purple", 
+     "border-weight":".5px", 
+     "border-style":"solid"})
+ 
+    })
+
+
+
+
      $('#buttonArea1').append('Home ').click(function(){
       $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.map( function(tweet){
-        return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${ogCreated.toDateString()}--${ogCreated.toLocaleTimeString()}--${Math.floor((new Date()- ogCreated) / 1000)}seconds ago`+'</div>'
+        return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
       }) +'<div>'))
+      $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
+      "border-weight":"1px", 
+      "border-style":"solid"})
+      
+      $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
+
      })
   
 
     $('#buttonArea3').append('MrAcus ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.mracus.map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))})
+    }) +'<div>'))
+    $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
+    "border-weight":"1px", 
+    "border-style":"solid"})
+
+    $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
+
+  })
 
     $('#buttonArea4').append('Sharks4 ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.sharksforcheap.map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))})
+    }) +'<div>'))
+    $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
+    "border-weight":"1px", 
+    "border-style":"solid"})
+
+    $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
+
+  })
   
     $('#buttonArea5').append('Doug ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.douglascalhoun.map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))})
+    }) +'<div>'))
+    $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
+    "border-weight":"1px", 
+    "border-style":"solid"})
+
+    $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
+
+  })
 
   //$('.shawndrost').show().click(function(){ console.log("shawn")
    // $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.shawndrost.map( function(tweet){
@@ -108,6 +179,14 @@ $(document).ready(() => {
     $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.map( function(tweet){
       return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--`+'</div>'
     }) +'<div>'))
+    $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
+    "border-weight":"1px", 
+    "border-style":"solid"})
+    
+    $('#tweetArea').children().css({"border-color": "purple", 
+    "border-weight":".5px", 
+    "border-style":"solid"})
+
    })
 
   
@@ -126,7 +205,12 @@ $(document).ready(() => {
   });
   $('#tweetArea').append($tweets)
   //setInterval($body.append(uniq($tweets.concat(streams.home))), 6*1000)
-  
+ 
+ 
+  $('#tweetArea').children().css({"border-color": "purple", 
+  "border-weight":".5px", 
+  "border-style":"solid"})
+
 });
 
 
