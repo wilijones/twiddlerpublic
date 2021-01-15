@@ -35,7 +35,7 @@ $(document).ready(() => {
     else{
     $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users[homeUser].map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${ogCreated.toDateString()}--${ogCreated.toLocaleTimeString()}--${Math.floor((new Date()- ogCreated) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))
+    }).join('') +'<div>'))
   }
   $("#tweetArea").css('background-color', 'LightSteelBlue')
 
@@ -85,7 +85,7 @@ $(document).ready(() => {
 
   $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.map( function(tweet){
     return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${ogCreated.toDateString()}--${ogCreated.toLocaleTimeString()}--${Math.floor((new Date()- ogCreated) / 1000)}seconds ago`+'</div>'
-  }) +'<div>'))
+  }).join('') +'<div>'))
   $("#tweetArea").css('background-color', 'LightSteelBlue')
 
   $('#tweetArea').children().css({"border-color": "purple", 
@@ -98,7 +98,9 @@ $(document).ready(() => {
 
   $('#buttonArea2').append('Shawn ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.shawndrost.map( function(tweet){
        return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-     }) +'<div>'))
+     }).join('') +'<div>'))
+
+
      $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
      "border-weight":"1px", 
      "border-style":"solid"})
@@ -115,7 +117,8 @@ $(document).ready(() => {
      $('#buttonArea1').append('Home ').click(function(){
       $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.map( function(tweet){
         return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-      }) +'<div>'))
+      }).join('') +'<div>'))
+      
       $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
       "border-weight":"1px", 
       "border-style":"solid"})
@@ -129,7 +132,8 @@ $(document).ready(() => {
 
     $('#buttonArea3').append('MrAcus ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.mracus.map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))
+    }).join('') +'<div>'))
+    
     $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
     "border-weight":"1px", 
     "border-style":"solid"})
@@ -142,7 +146,7 @@ $(document).ready(() => {
 
     $('#buttonArea4').append('Sharks4 ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.sharksforcheap.map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))
+    }).join('') +'<div>'))
     $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
     "border-weight":"1px", 
     "border-style":"solid"})
@@ -155,7 +159,7 @@ $(document).ready(() => {
   
     $('#buttonArea5').append('Doug ').click(function(){ $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.users.douglascalhoun.map( function(tweet){
       return  '<div id=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`+'</div>'
-    }) +'<div>'))
+    }).join('') +'<div>'))
     $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
     "border-weight":"1px", 
     "border-style":"solid"})
@@ -178,7 +182,7 @@ $(document).ready(() => {
   $("#newTwiddles").show().click(function(){
     $('#tweetArea').replaceWith($('<div id= tweetArea>' + streams.home.map( function(tweet){
       return  '<div class=' + tweet.user + '>'+`@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--`+'</div>'
-    }) +'<div>'))
+    }).join('') +'<div>'))
     $("#tweetArea").css('background-color', 'LightSteelBlue').css({"border-color": "#C1E0FF", 
     "border-weight":"1px", 
     "border-style":"solid"})
@@ -197,7 +201,7 @@ $(document).ready(() => {
 
   const $tweets = streams.home.map((tweet) => {
     const $tweet = $('<div></div>');
-    const text = `@${tweet.user}: ${tweet.message}`;
+    const text = `@${tweet.user}: ${tweet.message} : ${tweet.created_at.toDateString()}--${tweet.created_at.toLocaleTimeString()}--${Math.floor((new Date()- tweet.created_at) / 1000)}seconds ago`;
 
     $tweet.text(text);
 
@@ -241,32 +245,3 @@ setInterval(fn60sec, 60*1000)
 */
 
 
-var uniq = function(array, isSorted, iterator) {
-  //create two arrays
-  let arr = [];
-  let results = [];
-  //if iterator is undefined 
-  if (iterator === undefined) {
-    //loop through the array
-    for (let i = 0; i < array.length; i++) {
-      //if the results do not include the index
-      if (!results.includes(array[i])) {
-        //push it into the results array
-        results.push(array[i]);
-      }
-    } 
-  } else {
-    // else you run a for loop through the array again
-    for (let i = 0; i < array.length; i++) {
-      // if arr does not include the iterator and the arrays index 
-      if(!arr.includes(iterator(array[i]))) {
-        // then push it into the arr
-        arr.push(iterator(array[i]));
-        //and then to get final results
-        //push it into the results array
-        results.push(array[i]);
-      }
-    }
-  }
-  return results;
-  };
